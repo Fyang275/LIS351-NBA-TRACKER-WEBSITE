@@ -3,10 +3,6 @@
    Instructions: rename this file to styles.css and complete each TODO block.
 */
 
-
-
-
-
 /* ===== Base styles (mostly done) ===== */
 * { box-sizing: border-box; }
 
@@ -14,8 +10,9 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
-  color: #222;
+  color: #125;
   background: #fff;
+  padding-top: 80px; /* space for header + logo */
 }
 
 a { color: inherit; text-decoration: none; }
@@ -30,6 +27,8 @@ a:hover { text-decoration: underline; }
 .site-header {
   border-bottom: 1px solid #eee;
   background: #fff;
+  position: relative; /* anchor for logo */
+  padding: 16px 0;
 }
 
 .header-inner {
@@ -40,31 +39,43 @@ a:hover { text-decoration: underline; }
        - Center items vertically
        - Put space between left and right
   */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center nav */
 }
 
 .brand {
   font-size: 28px;
   font-weight: 700;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.brand img,
+.logo {
+  width: 48px;   /* smaller logo */
+  height: auto;
 }
 
 .brand .dot {
   /* TODO B (Color):
      Make the dot a light blue accent color (choose a readable blue).
   */
+  color: #3a88a8;
+}
+
+.site-nav {
+  text-align: center;
 }
 
 .site-nav a {
-  margin-left: 18px;
+  margin: 0 12px;
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 0.08em;
   color: #444;
 }
-
-
-
-
-
 
 /* ===== Hero ===== */
 .hero {
@@ -76,9 +87,12 @@ a:hover { text-decoration: underline; }
        - Add a light overlay so text is readable (hint: use a linear-gradient + image)
        - Set a minimum height (e.g., 360px)
   */
-  /* My image:
-     https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=60
-  */
+  background:
+    linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
+    url("https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=60");
+  background-size: cover;
+  background-position: center;
+  min-height: 360px;
 }
 
 .hero-content {
@@ -86,6 +100,8 @@ a:hover { text-decoration: underline; }
      Center the hero text horizontally.
      Add vertical padding so it doesn't feel cramped.
   */
+  text-align: center;
+  padding: 80px 0;
 }
 
 .hero h1 {
@@ -94,6 +110,8 @@ a:hover { text-decoration: underline; }
      Make the headline large and uppercase.
      (e.g., font-size around 42–48px, text-transform uppercase)
   */
+  font-size: 46px;
+  text-transform: uppercase;
 }
 
 .hero-subhead {
@@ -102,12 +120,9 @@ a:hover { text-decoration: underline; }
      Make this slightly smaller than h1 and a softer color.
      (e.g., font-size ~20–24px; color #555)
   */
+  font-size: 22px;
+  color: #555;
 }
-
-
-
-
-
 
 /* ===== Buttons ===== */
 .btn {
@@ -122,6 +137,8 @@ a:hover { text-decoration: underline; }
      Make this a dark filled button with white text.
      (e.g., background #333; color #fff)
   */
+  background: #333;
+  color: #fff;
 }
 
 .btn-outline {
@@ -129,6 +146,9 @@ a:hover { text-decoration: underline; }
      Make this an outlined button with a blue border and matching text.
      (e.g., border: 2px solid ...; color: ...; background: transparent)
   */
+  border: 2px solid #3a88a8;
+  color: #3a88a8;
+  background: transparent;
 }
 
 /* ===== Features (3 columns) ===== */
@@ -143,12 +163,17 @@ a:hover { text-decoration: underline; }
        - Use flexbox
        - Add a gap between items (e.g., 26px)
   */
+  display: flex;
+  gap: 26px;
+  justify-content: center; /* center grid in container */
 }
 
 .feature {
   /* TODO J (Sizing / alignment):
      Make each feature take equal width and center its text.
   */
+  flex: 1;
+  text-align: center;
 }
 
 .icon {
@@ -193,11 +218,6 @@ a:hover { text-decoration: underline; }
   place-items: center;
 }
 
-
-
-
-
-
 /* ===== Secondary content (2 cards) ===== */
 .secondary {
   padding: 34px 0 44px;
@@ -210,6 +230,9 @@ a:hover { text-decoration: underline; }
        - Use flexbox
        - Add a gap (e.g., 26px)
   */
+  display: flex;
+  gap: 26px;
+  justify-content: center; /* center cards in container */
 }
 
 .card {
@@ -217,6 +240,8 @@ a:hover { text-decoration: underline; }
      Give each card a border and make it take equal width.
      (Hint: flex: 1; border: 1px solid #eee)
   */
+  flex: 1;
+  border: 1px solid #eee;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -245,6 +270,8 @@ a:hover { text-decoration: underline; }
        - cover
        - centered
   */
+  background-size: cover;
+  background-position: center;
 }
 
 /* Optional images (already provided) */
@@ -265,11 +292,8 @@ a:hover { text-decoration: underline; }
   /* TODO N (Center CTA):
      Center the CTA text and button.
   */
+  text-align: center;
 }
-
-
-
-
 
 /* ===== Footer ===== */
 .site-footer {
@@ -286,6 +310,9 @@ a:hover { text-decoration: underline; }
        - Add a gap (e.g., 24px)
        - Space items out (left/right)
   */
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 .footer-left {
@@ -314,4 +341,3 @@ a:hover { text-decoration: underline; }
   color: #666;
   margin: 6px 0;
 }
-
